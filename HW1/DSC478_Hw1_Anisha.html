@@ -1,0 +1,4797 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head></head><body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    
+    
+    
+    
+
+
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<h1>Anisha Patel<a rel="noopener" class="anchor-link" href="#Anisha-Patel">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<h1>DSC 478 Spring 2022: Homework 1<a rel="noopener" class="anchor-link" href="#DSC-478-Spring-2022:-Homework-1">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<h1>Question 1<a rel="noopener" class="anchor-link" href="#Question-1">&#182;</a></h1>
+</div>
+</div># Download the data set adult-modified.csv and load it into an appropriate data structure such as a Pandas dataframe. Explore the general characteristics of the data as a whole: examine the means, standard deviations, and other statistics associated with the numeric attributes and frequencies associated with categorical attributes.<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/Users/vinodpatel/Desktop/DePaul/DSC 478 Programming machine learning/Week2/adult-modified.csv&quot;</span><span class="p">)</span>
+<span class="n">adult</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>education</th>
+      <th>marital-status</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>hours-per-week</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>39</td>
+      <td>Public</td>
+      <td>13</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>50</td>
+      <td>Self-emp</td>
+      <td>13</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>13</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>38</td>
+      <td>Private</td>
+      <td>9</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>53</td>
+      <td>Private</td>
+      <td>7</td>
+      <td>Married</td>
+      <td>Black</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>28</td>
+      <td>Private</td>
+      <td>13</td>
+      <td>Married</td>
+      <td>Black</td>
+      <td>Female</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>(9412, 8)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 9412 entries, 0 to 9411
+Data columns (total 8 columns):
+ #   Column          Non-Null Count  Dtype 
+---  ------          --------------  ----- 
+ 0   age             9412 non-null   int64 
+ 1   workclass       9412 non-null   object
+ 2   education       9412 non-null   int64 
+ 3   marital-status  9412 non-null   object
+ 4   race            9412 non-null   object
+ 5   sex             9412 non-null   object
+ 6   hours-per-week  9412 non-null   int64 
+ 7   income          9412 non-null   object
+dtypes: int64(3), object(5)
+memory usage: 588.4+ KB
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>education</th>
+      <th>marital-status</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>hours-per-week</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>9412.000000</td>
+      <td>9412</td>
+      <td>9412.000000</td>
+      <td>9412</td>
+      <td>9412</td>
+      <td>9412</td>
+      <td>9412.000000</td>
+      <td>9412</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>NaN</td>
+      <td>3</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>5</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>NaN</td>
+      <td>Private</td>
+      <td>NaN</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>NaN</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>NaN</td>
+      <td>6947</td>
+      <td>NaN</td>
+      <td>4737</td>
+      <td>8062</td>
+      <td>6383</td>
+      <td>NaN</td>
+      <td>7093</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>38.357310</td>
+      <td>NaN</td>
+      <td>10.125266</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>41.080217</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>12.962135</td>
+      <td>NaN</td>
+      <td>2.542118</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11.884590</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>17.000000</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>28.000000</td>
+      <td>NaN</td>
+      <td>9.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>40.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>37.000000</td>
+      <td>NaN</td>
+      <td>10.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>40.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>47.000000</td>
+      <td>NaN</td>
+      <td>13.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>45.000000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>90.000000</td>
+      <td>NaN</td>
+      <td>16.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>99.000000</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[27]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult</span><span class="p">[</span><span class="s1">&#39;marital-status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[27]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>Married    4737
+Single     4675
+Name: marital-status, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[17]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult</span><span class="p">[</span><span class="s1">&#39;race&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>White          8062
+Black           892
+Asian           291
+Amer-Indian      92
+Hispanic         75
+Name: race, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>Male      6383
+Female    3029
+Name: sex, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[21]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult</span><span class="p">[</span><span class="s1">&#39;income&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>&lt;=50K    7093
+&gt;50K     2319
+Name: income, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[25]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult</span><span class="p">[</span><span class="s1">&#39;workclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>Private     6947
+Public      1317
+Self-emp    1148
+Name: workclass, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<h1>Question 2<a rel="noopener" class="anchor-link" href="#Question-2">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<p>For the three numeric attributes (age, hours-per-week, education), display box plots that show the overall dispersion and skew in these variables. Next, create histograms for these three variables showing the overall data distribution in each. Finally, display a scatter plot of age (x-axis) vs. hours-per-week (y-axis).</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[56]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="s1">&#39;hours-per-week&#39;</span><span class="p">,</span> <span class="s1">&#39;education&#39;</span><span class="p">],</span> <span class="n">grid</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Box Plot of Age, hours-per-week, education&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[56]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>Text(0.5, 1.0, &#39;Box Plot of Age, hours-per-week, education&#39;)</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[44]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">adult</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Age&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>Text(0.5, 1.0, &#39;Histogram of Age&#39;)</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[48]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">adult</span><span class="p">[</span><span class="s2">&quot;hours-per-week&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hours Per Week&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Hours per Week&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[48]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>Text(0.5, 1.0, &#39;Histogram of Hours per Week&#39;)</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[51]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">adult</span><span class="p">[</span><span class="s2">&quot;education&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Education&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Education&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[51]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>Text(0.5, 1.0, &#39;Histogram of Education&#39;)</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[58]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;hours-per-week&quot;</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;scatter&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Age vs. hours-per-week&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[58]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>Text(0.5, 1.0, &#39;Age vs. hours-per-week&#39;)</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<h1>Question 3<a rel="noopener" class="anchor-link" href="#Question-3">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<p>For the remaining categorical attributes create bar charts that show the distribution of category frequencies (e.g., married vs. single; private vs. public vs. self-emp; etc). Ideally, you should use bar charts in a single figure similar to this figure.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[351]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plot</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+
+<span class="n">married_plot</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">331</span><span class="p">)</span>
+<span class="n">married_plot</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;marital-status&#39;</span><span class="p">)</span>
+<span class="n">married_plot</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Percentage&#39;</span><span class="p">)</span>
+<span class="n">married_plot</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Marital-Status Distribution&quot;</span><span class="p">)</span>
+<span class="n">adult</span><span class="p">[</span><span class="s2">&quot;marital-status&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">grid</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">race_plot</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">332</span><span class="p">)</span>
+<span class="n">race_plot</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;race&#39;</span><span class="p">)</span>
+<span class="n">race_plot</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Percentage&#39;</span><span class="p">)</span>
+<span class="n">race_plot</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Race Distribution&quot;</span><span class="p">)</span>
+<span class="n">adult</span><span class="p">[</span><span class="s2">&quot;race&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">grid</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">sex_plot</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">333</span><span class="p">)</span>
+<span class="n">sex_plot</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;sex&#39;</span><span class="p">)</span>
+<span class="n">sex_plot</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Percentage&#39;</span><span class="p">)</span>
+<span class="n">sex_plot</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Sex Distribution&quot;</span><span class="p">)</span>
+<span class="n">adult</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">grid</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">work_plot</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">334</span><span class="p">)</span>
+<span class="n">work_plot</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;workclass&#39;</span><span class="p">)</span>
+<span class="n">work_plot</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Percentage&#39;</span><span class="p">)</span>
+<span class="n">work_plot</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Workclass Distribution&quot;</span><span class="p">)</span>
+<span class="n">adult</span><span class="p">[</span><span class="s2">&quot;workclass&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">grid</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">inc_plot</span> <span class="o">=</span> <span class="n">plot</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">335</span><span class="p">)</span>
+<span class="n">inc_plot</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;income&#39;</span><span class="p">)</span>
+<span class="n">inc_plot</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Percentage&#39;</span><span class="p">)</span>
+<span class="n">inc_plot</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Income Distribution&quot;</span><span class="p">)</span>
+<span class="n">adult</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">grid</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[351]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Income Distribution&#39;}, xlabel=&#39;income&#39;, ylabel=&#39;Percentage&#39;&gt;</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<h1>Question 4<a rel="noopener" class="anchor-link" href="#Question-4">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<p>Perform a cross-tabulations of each of the workclass and race attributes with the income attribute. Show the resulting cross-tab tables as well as bar charts to visualize the relationships between these pairs of attributes. [Hint: you can use aggregation functions in Pandas such as groupby() and  cross-tab(), then either using Matplotlib directly or the plot() function in Pandas create the bar charts]. As an illustration, consider this graph depicting the cross-tabulation of sex with income. In the case of race vs. income cross-tab, create another chart comparing the percentages of each race category that fall in the low-income group.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[109]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">workInc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">adult</span><span class="p">[</span><span class="s2">&quot;workclass&quot;</span><span class="p">],</span> <span class="n">adult</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">workInc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">))</span>
+<span class="n">workInc</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[109]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>income</th>
+      <th>&lt;=50K</th>
+      <th>&gt;50K</th>
+    </tr>
+    <tr>
+      <th>workclass</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Private</th>
+      <td>5443</td>
+      <td>1504</td>
+    </tr>
+    <tr>
+      <th>Public</th>
+      <td>925</td>
+      <td>392</td>
+    </tr>
+    <tr>
+      <th>Self-emp</th>
+      <td>725</td>
+      <td>423</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[42]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">racInc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">adult</span><span class="p">[</span><span class="s2">&quot;race&quot;</span><span class="p">],</span> <span class="n">adult</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">racInc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">))</span>
+<span class="n">racInc</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[42]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>income</th>
+      <th>&lt;=50K</th>
+      <th>&gt;50K</th>
+    </tr>
+    <tr>
+      <th>race</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Amer-Indian</th>
+      <td>83</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>Asian</th>
+      <td>224</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <th>Black</th>
+      <td>773</td>
+      <td>119</td>
+    </tr>
+    <tr>
+      <th>Hispanic</th>
+      <td>69</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>White</th>
+      <td>5944</td>
+      <td>2118</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[78]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">perc</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">/</span><span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">race_perc</span> <span class="o">=</span> <span class="n">racInc</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">perc</span><span class="p">)</span>
+<span class="n">race_perc</span>
+<span class="n">low_inc_race</span> <span class="o">=</span> <span class="n">race_perc</span><span class="p">[[</span><span class="s2">&quot;&lt;=50K&quot;</span><span class="p">]]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">low_inc_race</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<h1>Question 5<a rel="noopener" class="anchor-link" href="#Question-5">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<p>Compare and contrast the characteristics of the low-income and high-income categories across the different attributes. You may consider first creating separate subsets of the data based on the income categories and then characterizing each subset by observing summary statistics for each group across different variables. Discuss your observations focusing specifically on unique characteristics that seem to distinguish among the two groups. You may (though you are not required to) use charts or plots for visualizing the differences in your analysis.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[10]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">low_inc</span> <span class="o">=</span> <span class="n">adult</span><span class="p">[</span><span class="n">adult</span><span class="o">.</span><span class="n">income</span><span class="o">==</span> <span class="s1">&#39;&lt;=50K&#39;</span><span class="p">]</span>
+<span class="n">low_inc</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>education</th>
+      <th>marital-status</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>hours-per-week</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>39</td>
+      <td>Public</td>
+      <td>13</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>50</td>
+      <td>Self-emp</td>
+      <td>13</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>13</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>38</td>
+      <td>Private</td>
+      <td>9</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>53</td>
+      <td>Private</td>
+      <td>7</td>
+      <td>Married</td>
+      <td>Black</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>28</td>
+      <td>Private</td>
+      <td>13</td>
+      <td>Married</td>
+      <td>Black</td>
+      <td>Female</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9406</th>
+      <td>34</td>
+      <td>Self-emp</td>
+      <td>11</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>75</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>9408</th>
+      <td>25</td>
+      <td>Private</td>
+      <td>9</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>8</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>9409</th>
+      <td>21</td>
+      <td>Private</td>
+      <td>10</td>
+      <td>Single</td>
+      <td>Black</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>9410</th>
+      <td>38</td>
+      <td>Private</td>
+      <td>2</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>53</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>9411</th>
+      <td>39</td>
+      <td>Private</td>
+      <td>10</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+  </tbody>
+</table>
+<p>7093 rows &#215; 8 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">high_inc</span> <span class="o">=</span> <span class="n">adult</span><span class="p">[</span><span class="n">adult</span><span class="o">.</span><span class="n">income</span> <span class="o">==</span><span class="s2">&quot;&gt;50K&quot;</span><span class="p">]</span>
+<span class="n">high_inc</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>education</th>
+      <th>marital-status</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>hours-per-week</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7</th>
+      <td>52</td>
+      <td>Self-emp</td>
+      <td>9</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>45</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>31</td>
+      <td>Private</td>
+      <td>14</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>50</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>42</td>
+      <td>Private</td>
+      <td>13</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>37</td>
+      <td>Private</td>
+      <td>10</td>
+      <td>Married</td>
+      <td>Black</td>
+      <td>Male</td>
+      <td>80</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>30</td>
+      <td>Public</td>
+      <td>13</td>
+      <td>Married</td>
+      <td>Asian</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9372</th>
+      <td>40</td>
+      <td>Private</td>
+      <td>9</td>
+      <td>Married</td>
+      <td>Black</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>9375</th>
+      <td>47</td>
+      <td>Private</td>
+      <td>13</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>60</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>9379</th>
+      <td>38</td>
+      <td>Private</td>
+      <td>13</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>50</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>9385</th>
+      <td>43</td>
+      <td>Public</td>
+      <td>14</td>
+      <td>Single</td>
+      <td>Black</td>
+      <td>Female</td>
+      <td>40</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>9407</th>
+      <td>38</td>
+      <td>Private</td>
+      <td>10</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>60</td>
+      <td>&gt;50K</td>
+    </tr>
+  </tbody>
+</table>
+<p>2319 rows &#215; 8 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[29]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">low_inc</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span><span class="s2">&quot;Low&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">high_inc</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;high&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Age based on Income level&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Low Income&quot;</span><span class="p">,</span> <span class="s2">&quot;High Income&quot;</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>&lt;matplotlib.legend.Legend at 0x7fa4bd202310&gt;</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[334]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">low_inc</span><span class="p">[</span><span class="s2">&quot;marital-status&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">high_inc</span><span class="p">[</span><span class="s2">&quot;marital-status&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;marital-status&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Marital-Status based on Income level&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Low Income&quot;</span><span class="p">,</span> <span class="s2">&quot;High Income&quot;</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[334]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>&lt;matplotlib.legend.Legend at 0x7fa4bf027f40&gt;</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[336]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">low_inc</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">high_inc</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Sex&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Sex based on Income level&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Low Income&quot;</span><span class="p">,</span> <span class="s2">&quot;High Income&quot;</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[336]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>&lt;matplotlib.legend.Legend at 0x7fa4bb34e4c0&gt;</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[337]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">low_inc</span><span class="p">[</span><span class="s2">&quot;race&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">high_inc</span><span class="p">[</span><span class="s2">&quot;race&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Race&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of race based on Income level&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Low Income&quot;</span><span class="p">,</span> <span class="s2">&quot;High Income&quot;</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[337]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>&lt;matplotlib.legend.Legend at 0x7fa4bb4a3d90&gt;</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[338]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">low_inc</span><span class="p">[</span><span class="s2">&quot;hours-per-week&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">high_inc</span><span class="p">[</span><span class="s2">&quot;hours-per-week&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Hours-per-week&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of hours per week based on Income level&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Low Income&quot;</span><span class="p">,</span> <span class="s2">&quot;High Income&quot;</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[338]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>&lt;matplotlib.legend.Legend at 0x7fa4c0f07490&gt;</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[339]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">low_inc</span><span class="p">[</span><span class="s2">&quot;workclass&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">high_inc</span><span class="p">[</span><span class="s2">&quot;workclass&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Work Class&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Work Class based on Income level&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;Low Income&quot;</span><span class="p">,</span> <span class="s2">&quot;High Income&quot;</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[339]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>&lt;matplotlib.legend.Legend at 0x7fa4c0968b80&gt;</pre>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[333]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">Linc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">low_inc</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">],</span> <span class="n">low_inc</span><span class="p">[</span><span class="s2">&quot;marital-status&quot;</span><span class="p">])</span>
+<span class="n">Hinc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">high_inc</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">],</span> <span class="n">high_inc</span><span class="p">[</span><span class="s2">&quot;marital-status&quot;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Linc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">Hinc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+<div class="jp-RenderedImage jp-OutputArea-output">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div># The number of people with lower income starts at a high point and decreases with the age of the people. the distributions is right skewed. The number of people with income &gt;50k follow a normal distribution with a median at 40 year age. There is a high bias of income within the single marital status people. Around 15% of singles earn more than 50K. There is also a disparity among the married people in terms of income. Among the males, there is an even distribution of low income and high income, whereas in women, there is a high bias for lower income. Black and Hispanic race has more number of Low income people compared to other races. Both the income class people work mostly 40 hours a week. However the number of people from lower income class who work 40 hours a week are a lot more than people with higher income. Also, interesting to know that peopel with income more than 50K work more hours comapred to other class. In the private workclass there are more people with lower income. Public and self-employed people has even distribution of both classes.  
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<h1>Question 6<a rel="noopener" class="anchor-link" href="#Question-6">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<p>Convert the data into the standard spreadsheet format. Note that this requires converting each categorical attribute into multiple binary (&quot;dummy&quot;) attributes (one for each values of the categorical attribute) and assigning binary values corresponding to the presence or not presence of the attribute value in the original record). The numeric attributes should remain unchanged. Save this data in a new dataframe and show the top 10 rows in the new dataframe. Also save this new table into a local file called adult_numeric.csv.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[103]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult_numeric</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">adult</span><span class="p">)</span>
+<span class="n">adult_numeric</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[103]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>education</th>
+      <th>hours-per-week</th>
+      <th>workclass_Private</th>
+      <th>workclass_Public</th>
+      <th>workclass_Self-emp</th>
+      <th>marital-status_Married</th>
+      <th>marital-status_Single</th>
+      <th>race_Amer-Indian</th>
+      <th>race_Asian</th>
+      <th>race_Black</th>
+      <th>race_Hispanic</th>
+      <th>race_White</th>
+      <th>sex_Female</th>
+      <th>sex_Male</th>
+      <th>income_&lt;=50K</th>
+      <th>income_&gt;50K</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>39</td>
+      <td>13</td>
+      <td>40</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>50</td>
+      <td>13</td>
+      <td>13</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>38</td>
+      <td>9</td>
+      <td>40</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>53</td>
+      <td>7</td>
+      <td>40</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>28</td>
+      <td>13</td>
+      <td>40</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>37</td>
+      <td>14</td>
+      <td>40</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>49</td>
+      <td>5</td>
+      <td>16</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>52</td>
+      <td>9</td>
+      <td>45</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>31</td>
+      <td>14</td>
+      <td>50</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>42</td>
+      <td>13</td>
+      <td>40</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[104]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult_numeric</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[104]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>education</th>
+      <th>hours-per-week</th>
+      <th>workclass_Private</th>
+      <th>workclass_Public</th>
+      <th>workclass_Self-emp</th>
+      <th>marital-status_Married</th>
+      <th>marital-status_Single</th>
+      <th>race_Amer-Indian</th>
+      <th>race_Asian</th>
+      <th>race_Black</th>
+      <th>race_Hispanic</th>
+      <th>race_White</th>
+      <th>sex_Female</th>
+      <th>sex_Male</th>
+      <th>income_&lt;=50K</th>
+      <th>income_&gt;50K</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+      <td>9412.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>38.357310</td>
+      <td>10.125266</td>
+      <td>41.080217</td>
+      <td>0.738100</td>
+      <td>0.139928</td>
+      <td>0.121972</td>
+      <td>0.503294</td>
+      <td>0.496706</td>
+      <td>0.009775</td>
+      <td>0.030918</td>
+      <td>0.094773</td>
+      <td>0.007969</td>
+      <td>0.856566</td>
+      <td>0.321823</td>
+      <td>0.678177</td>
+      <td>0.753612</td>
+      <td>0.246388</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>12.962135</td>
+      <td>2.542118</td>
+      <td>11.884590</td>
+      <td>0.439692</td>
+      <td>0.346930</td>
+      <td>0.327271</td>
+      <td>0.500016</td>
+      <td>0.500016</td>
+      <td>0.098388</td>
+      <td>0.173105</td>
+      <td>0.292916</td>
+      <td>0.088915</td>
+      <td>0.350533</td>
+      <td>0.467200</td>
+      <td>0.467200</td>
+      <td>0.430930</td>
+      <td>0.430930</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>17.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>28.000000</td>
+      <td>9.000000</td>
+      <td>40.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>37.000000</td>
+      <td>10.000000</td>
+      <td>40.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>47.000000</td>
+      <td>13.000000</td>
+      <td>45.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>90.000000</td>
+      <td>16.000000</td>
+      <td>99.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[106]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult_numeric</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;adult_numeric.csv&quot;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<h1>Question 7<a rel="noopener" class="anchor-link" href="#Question-7">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<p>Using the numeric data set with the dummy variables (of the previous part), perform basic correlation analysis among the attributes. You need to construct a complete Correlation Matrix (with rows and columns corresponding to each variable). [Hint: you can create the correlation matrix by using the corr() function in Pandas or corrcoef function in NumPy]. Next, using your correlation matrix, display in decreasing order of correlations, all attributes and their correlations to education. Repeat this step to display correlations with the attribute income_&lt;=50K. Briefly discuss your general observations about this sample of adult population based on this correlation analysis.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[110]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">cor_matrix</span> <span class="o">=</span> <span class="n">adult_numeric</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="n">cor_matrix</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[110]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>education</th>
+      <th>hours-per-week</th>
+      <th>workclass_Private</th>
+      <th>workclass_Public</th>
+      <th>workclass_Self-emp</th>
+      <th>marital-status_Married</th>
+      <th>marital-status_Single</th>
+      <th>race_Amer-Indian</th>
+      <th>race_Asian</th>
+      <th>race_Black</th>
+      <th>race_Hispanic</th>
+      <th>race_White</th>
+      <th>sex_Female</th>
+      <th>sex_Male</th>
+      <th>income_&lt;=50K</th>
+      <th>income_&gt;50K</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>age</th>
+      <td>1.000000</td>
+      <td>0.034733</td>
+      <td>0.103170</td>
+      <td>-0.202982</td>
+      <td>0.080254</td>
+      <td>0.187633</td>
+      <td>0.381168</td>
+      <td>-0.381168</td>
+      <td>-0.010904</td>
+      <td>-0.008097</td>
+      <td>-0.008668</td>
+      <td>-0.031973</td>
+      <td>0.022413</td>
+      <td>-0.071804</td>
+      <td>0.071804</td>
+      <td>-0.232261</td>
+      <td>0.232261</td>
+    </tr>
+    <tr>
+      <th>education</th>
+      <td>0.034733</td>
+      <td>1.000000</td>
+      <td>0.141730</td>
+      <td>-0.154977</td>
+      <td>0.154462</td>
+      <td>0.044472</td>
+      <td>0.050627</td>
+      <td>-0.050627</td>
+      <td>-0.039308</td>
+      <td>0.057360</td>
+      <td>-0.069029</td>
+      <td>-0.044845</td>
+      <td>0.051765</td>
+      <td>-0.008180</td>
+      <td>0.008180</td>
+      <td>-0.329066</td>
+      <td>0.329066</td>
+    </tr>
+    <tr>
+      <th>hours-per-week</th>
+      <td>0.103170</td>
+      <td>0.141730</td>
+      <td>1.000000</td>
+      <td>-0.097753</td>
+      <td>-0.021407</td>
+      <td>0.154025</td>
+      <td>0.183944</td>
+      <td>-0.183944</td>
+      <td>0.002964</td>
+      <td>0.000550</td>
+      <td>-0.071442</td>
+      <td>0.011964</td>
+      <td>0.055561</td>
+      <td>-0.221588</td>
+      <td>0.221588</td>
+      <td>-0.222686</td>
+      <td>0.222686</td>
+    </tr>
+    <tr>
+      <th>workclass_Private</th>
+      <td>-0.202982</td>
+      <td>-0.154977</td>
+      <td>-0.097753</td>
+      <td>1.000000</td>
+      <td>-0.677134</td>
+      <td>-0.625700</td>
+      <td>-0.121014</td>
+      <td>0.121014</td>
+      <td>-0.007136</td>
+      <td>-0.015060</td>
+      <td>0.004632</td>
+      <td>0.023490</td>
+      <td>-0.000389</td>
+      <td>0.072569</td>
+      <td>-0.072569</td>
+      <td>0.116453</td>
+      <td>-0.116453</td>
+    </tr>
+    <tr>
+      <th>workclass_Public</th>
+      <td>0.080254</td>
+      <td>0.154462</td>
+      <td>-0.021407</td>
+      <td>-0.677134</td>
+      <td>1.000000</td>
+      <td>-0.150335</td>
+      <td>-0.002351</td>
+      <td>0.002351</td>
+      <td>0.022185</td>
+      <td>0.012883</td>
+      <td>0.070250</td>
+      <td>-0.018927</td>
+      <td>-0.066491</td>
+      <td>0.045338</td>
+      <td>-0.045338</td>
+      <td>-0.047981</td>
+      <td>0.047981</td>
+    </tr>
+    <tr>
+      <th>workclass_Self-emp</th>
+      <td>0.187633</td>
+      <td>0.044472</td>
+      <td>0.154025</td>
+      <td>-0.625700</td>
+      <td>-0.150335</td>
+      <td>1.000000</td>
+      <td>0.165075</td>
+      <td>-0.165075</td>
+      <td>-0.013931</td>
+      <td>0.006576</td>
+      <td>-0.080694</td>
+      <td>-0.011495</td>
+      <td>0.071008</td>
+      <td>-0.145559</td>
+      <td>0.145559</td>
+      <td>-0.105593</td>
+      <td>0.105593</td>
+    </tr>
+    <tr>
+      <th>marital-status_Married</th>
+      <td>0.381168</td>
+      <td>0.050627</td>
+      <td>0.183944</td>
+      <td>-0.121014</td>
+      <td>-0.002351</td>
+      <td>0.165075</td>
+      <td>1.000000</td>
+      <td>-1.000000</td>
+      <td>-0.013614</td>
+      <td>0.017852</td>
+      <td>-0.104427</td>
+      <td>0.000605</td>
+      <td>0.082114</td>
+      <td>-0.357736</td>
+      <td>0.357736</td>
+      <td>-0.414173</td>
+      <td>0.414173</td>
+    </tr>
+    <tr>
+      <th>marital-status_Single</th>
+      <td>-0.381168</td>
+      <td>-0.050627</td>
+      <td>-0.183944</td>
+      <td>0.121014</td>
+      <td>0.002351</td>
+      <td>-0.165075</td>
+      <td>-1.000000</td>
+      <td>1.000000</td>
+      <td>0.013614</td>
+      <td>-0.017852</td>
+      <td>0.104427</td>
+      <td>-0.000605</td>
+      <td>-0.082114</td>
+      <td>0.357736</td>
+      <td>-0.357736</td>
+      <td>0.414173</td>
+      <td>-0.414173</td>
+    </tr>
+    <tr>
+      <th>race_Amer-Indian</th>
+      <td>-0.010904</td>
+      <td>-0.039308</td>
+      <td>0.002964</td>
+      <td>-0.007136</td>
+      <td>0.022185</td>
+      <td>-0.013931</td>
+      <td>-0.013614</td>
+      <td>0.013614</td>
+      <td>1.000000</td>
+      <td>-0.017746</td>
+      <td>-0.032148</td>
+      <td>-0.008905</td>
+      <td>-0.242795</td>
+      <td>0.021711</td>
+      <td>-0.021711</td>
+      <td>0.034254</td>
+      <td>-0.034254</td>
+    </tr>
+    <tr>
+      <th>race_Asian</th>
+      <td>-0.008097</td>
+      <td>0.057360</td>
+      <td>0.000550</td>
+      <td>-0.015060</td>
+      <td>0.012883</td>
+      <td>0.006576</td>
+      <td>0.017852</td>
+      <td>-0.017852</td>
+      <td>-0.017746</td>
+      <td>1.000000</td>
+      <td>-0.057795</td>
+      <td>-0.016009</td>
+      <td>-0.436496</td>
+      <td>0.001773</td>
+      <td>-0.001773</td>
+      <td>0.006693</td>
+      <td>-0.006693</td>
+    </tr>
+    <tr>
+      <th>race_Black</th>
+      <td>-0.008668</td>
+      <td>-0.069029</td>
+      <td>-0.071442</td>
+      <td>0.004632</td>
+      <td>0.070250</td>
+      <td>-0.080694</td>
+      <td>-0.104427</td>
+      <td>0.104427</td>
+      <td>-0.032148</td>
+      <td>-0.057795</td>
+      <td>1.000000</td>
+      <td>-0.028999</td>
+      <td>-0.790710</td>
+      <td>0.106323</td>
+      <td>-0.106323</td>
+      <td>0.084836</td>
+      <td>-0.084836</td>
+    </tr>
+    <tr>
+      <th>race_Hispanic</th>
+      <td>-0.031973</td>
+      <td>-0.044845</td>
+      <td>0.011964</td>
+      <td>0.023490</td>
+      <td>-0.018927</td>
+      <td>-0.011495</td>
+      <td>0.000605</td>
+      <td>-0.000605</td>
+      <td>-0.008905</td>
+      <td>-0.016009</td>
+      <td>-0.028999</td>
+      <td>1.000000</td>
+      <td>-0.219019</td>
+      <td>0.004766</td>
+      <td>-0.004766</td>
+      <td>0.034607</td>
+      <td>-0.034607</td>
+    </tr>
+    <tr>
+      <th>race_White</th>
+      <td>0.022413</td>
+      <td>0.051765</td>
+      <td>0.055561</td>
+      <td>-0.000389</td>
+      <td>-0.066491</td>
+      <td>0.071008</td>
+      <td>0.082114</td>
+      <td>-0.082114</td>
+      <td>-0.242795</td>
+      <td>-0.436496</td>
+      <td>-0.790710</td>
+      <td>-0.219019</td>
+      <td>1.000000</td>
+      <td>-0.097025</td>
+      <td>0.097025</td>
+      <td>-0.092589</td>
+      <td>0.092589</td>
+    </tr>
+    <tr>
+      <th>sex_Female</th>
+      <td>-0.071804</td>
+      <td>-0.008180</td>
+      <td>-0.221588</td>
+      <td>0.072569</td>
+      <td>0.045338</td>
+      <td>-0.145559</td>
+      <td>-0.357736</td>
+      <td>0.357736</td>
+      <td>0.021711</td>
+      <td>0.001773</td>
+      <td>0.106323</td>
+      <td>0.004766</td>
+      <td>-0.097025</td>
+      <td>1.000000</td>
+      <td>-1.000000</td>
+      <td>0.203886</td>
+      <td>-0.203886</td>
+    </tr>
+    <tr>
+      <th>sex_Male</th>
+      <td>0.071804</td>
+      <td>0.008180</td>
+      <td>0.221588</td>
+      <td>-0.072569</td>
+      <td>-0.045338</td>
+      <td>0.145559</td>
+      <td>0.357736</td>
+      <td>-0.357736</td>
+      <td>-0.021711</td>
+      <td>-0.001773</td>
+      <td>-0.106323</td>
+      <td>-0.004766</td>
+      <td>0.097025</td>
+      <td>-1.000000</td>
+      <td>1.000000</td>
+      <td>-0.203886</td>
+      <td>0.203886</td>
+    </tr>
+    <tr>
+      <th>income_&lt;=50K</th>
+      <td>-0.232261</td>
+      <td>-0.329066</td>
+      <td>-0.222686</td>
+      <td>0.116453</td>
+      <td>-0.047981</td>
+      <td>-0.105593</td>
+      <td>-0.414173</td>
+      <td>0.414173</td>
+      <td>0.034254</td>
+      <td>0.006693</td>
+      <td>0.084836</td>
+      <td>0.034607</td>
+      <td>-0.092589</td>
+      <td>0.203886</td>
+      <td>-0.203886</td>
+      <td>1.000000</td>
+      <td>-1.000000</td>
+    </tr>
+    <tr>
+      <th>income_&gt;50K</th>
+      <td>0.232261</td>
+      <td>0.329066</td>
+      <td>0.222686</td>
+      <td>-0.116453</td>
+      <td>0.047981</td>
+      <td>0.105593</td>
+      <td>0.414173</td>
+      <td>-0.414173</td>
+      <td>-0.034254</td>
+      <td>-0.006693</td>
+      <td>-0.084836</td>
+      <td>-0.034607</td>
+      <td>0.092589</td>
+      <td>-0.203886</td>
+      <td>0.203886</td>
+      <td>-1.000000</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[111]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Correlation of all the attributes with respect to education &lt;=50K in desscending order</span>
+<span class="n">cor_matrix</span><span class="p">[</span><span class="s2">&quot;education&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[111]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>education                 1.000000
+income_&gt;50K               0.329066
+workclass_Public          0.154462
+hours-per-week            0.141730
+race_Asian                0.057360
+race_White                0.051765
+marital-status_Married    0.050627
+workclass_Self-emp        0.044472
+age                       0.034733
+sex_Male                  0.008180
+sex_Female               -0.008180
+race_Amer-Indian         -0.039308
+race_Hispanic            -0.044845
+marital-status_Single    -0.050627
+race_Black               -0.069029
+workclass_Private        -0.154977
+income_&lt;=50K             -0.329066
+Name: education, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[112]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Correlation of all the attributes with respect to income &lt;=50K in desscending order</span>
+<span class="n">cor_matrix</span><span class="p">[</span><span class="s2">&quot;income_&lt;=50K&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[112]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>income_&lt;=50K              1.000000
+marital-status_Single     0.414173
+sex_Female                0.203886
+workclass_Private         0.116453
+race_Black                0.084836
+race_Hispanic             0.034607
+race_Amer-Indian          0.034254
+race_Asian                0.006693
+workclass_Public         -0.047981
+race_White               -0.092589
+workclass_Self-emp       -0.105593
+sex_Male                 -0.203886
+hours-per-week           -0.222686
+age                      -0.232261
+education                -0.329066
+marital-status_Married   -0.414173
+income_&gt;50K              -1.000000
+Name: income_&lt;=50K, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<p>Dummy varaibles for race seem to be very less corelated to all the other varaiables. Marital status dummy variables and income dummy varaibles have the highest correlation of 41%. Income &lt;=50K has a negative corelation with married marital status, and negative for single marital status. Vice-versa for Income &gt;50K. Variables sex and marital-status have a high correlation of 0.35. Male sex has a positive 0.35 corelation with the married marital status.</p>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<h1>Question 8<a rel="noopener" class="anchor-link" href="#Question-8">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<p>Discretize the age attribute into 3 categories (corresponding to &quot;young&quot;, &quot;mid-age&quot;, and &quot;old&quot;). Do not change the original age attribute or add the discretized age to the table. Create a new dataframe with the numeric and the discretized age attributes as two columns and display the top 10 rows of the new dataframe.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[129]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#discretising age variable into &#39;young&#39;, &#39;mid-age&#39;, &#39;old&#39;</span>
+<span class="n">age_bins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">adult_numeric</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">age_bins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">adult_numeric</span><span class="o">.</span><span class="n">age</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">.33</span><span class="p">,</span> <span class="mf">.66</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;young&quot;</span><span class="p">,</span> <span class="s2">&quot;mid-age&quot;</span><span class="p">,</span> <span class="s2">&quot;old&quot;</span><span class="p">])</span>
+<span class="n">disc_adult</span><span class="p">[</span><span class="s2">&quot;age_bins&quot;</span><span class="p">]</span><span class="o">=</span> <span class="n">age_bins</span>
+<span class="n">disc_adult</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[129]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>education</th>
+      <th>hours-per-week</th>
+      <th>workclass_Private</th>
+      <th>workclass_Public</th>
+      <th>workclass_Self-emp</th>
+      <th>marital-status_Married</th>
+      <th>marital-status_Single</th>
+      <th>race_Amer-Indian</th>
+      <th>race_Asian</th>
+      <th>race_Black</th>
+      <th>race_Hispanic</th>
+      <th>race_White</th>
+      <th>sex_Female</th>
+      <th>sex_Male</th>
+      <th>income_&lt;=50K</th>
+      <th>income_&gt;50K</th>
+      <th>age_bins</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>39</td>
+      <td>13</td>
+      <td>40</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>mid-age</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>50</td>
+      <td>13</td>
+      <td>13</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>old</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>38</td>
+      <td>9</td>
+      <td>40</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>mid-age</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>53</td>
+      <td>7</td>
+      <td>40</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>old</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>28</td>
+      <td>13</td>
+      <td>40</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>young</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>37</td>
+      <td>14</td>
+      <td>40</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>mid-age</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>49</td>
+      <td>5</td>
+      <td>16</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>old</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>52</td>
+      <td>9</td>
+      <td>45</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>old</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>31</td>
+      <td>14</td>
+      <td>50</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>young</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>42</td>
+      <td>13</td>
+      <td>40</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>mid-age</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<h1>Question 9<a rel="noopener" class="anchor-link" href="#Question-9">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<p>Use Min-Max Normalization to transform the values of the attribute hours-per-week the range 0.0-1.0 (without changing the original data). Next, perform zscore normalization to standardize the values of all numeric attributes (age, hours-per-week, education). The latter step should be performed on all three attributes at the same time instead of one-by-one (you may wish to first create a separate dataframe with only these attributes and perform the operation on the whole dataframe. Note: for this problem, you should write your own code to perform the normalization; do not use pre-existing functions such as scikit-learn&#39;s MinMaxScaler(). Finally, show the top 10 rows of the three versions of the hours-per-week attribute (original, normalized, and standardized) side-by-side in a new dataframe.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[310]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[310]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>education</th>
+      <th>marital-status</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>hours-per-week</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>39</td>
+      <td>Public</td>
+      <td>13</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>50</td>
+      <td>Self-emp</td>
+      <td>13</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>13</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>38</td>
+      <td>Private</td>
+      <td>9</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>53</td>
+      <td>Private</td>
+      <td>7</td>
+      <td>Married</td>
+      <td>Black</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>28</td>
+      <td>Private</td>
+      <td>13</td>
+      <td>Married</td>
+      <td>Black</td>
+      <td>Female</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[192]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Min max normalization of hours-per-week</span>
+<span class="n">min_hours</span> <span class="o">=</span> <span class="n">adult</span><span class="p">[</span><span class="s2">&quot;hours-per-week&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">max_hours</span> <span class="o">=</span> <span class="n">adult</span><span class="p">[</span><span class="s2">&quot;hours-per-week&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">norm_hours</span> <span class="o">=</span> <span class="p">(</span><span class="n">adult</span><span class="p">[</span><span class="s2">&quot;hours-per-week&quot;</span><span class="p">]</span><span class="o">-</span> <span class="n">min_hours</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">max_hours</span><span class="o">-</span><span class="n">min_hours</span><span class="p">)</span>
+<span class="n">norm_hours</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[192]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult">
+<pre>0    0.397959
+1    0.122449
+2    0.397959
+3    0.397959
+4    0.397959
+Name: hours-per-week, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[144]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#zscore normalization of age, education and hours-per-week</span>
+<span class="n">adult_num</span> <span class="o">=</span> <span class="n">adult</span><span class="p">[[</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;hours-per-week&quot;</span><span class="p">,</span> <span class="s2">&quot;education&quot;</span><span class="p">]]</span>
+<span class="n">zscore</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">adult_std</span> <span class="o">=</span> <span class="n">adult_num</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">zscore</span><span class="p">)</span>
+<span class="n">adult_std</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[144]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>hours-per-week</th>
+      <th>education</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.049582</td>
+      <td>-0.090892</td>
+      <td>1.130842</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.898208</td>
+      <td>-2.362742</td>
+      <td>1.130842</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.027566</td>
+      <td>-0.090892</td>
+      <td>-0.442649</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.129651</td>
+      <td>-0.090892</td>
+      <td>-1.229394</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-0.799044</td>
+      <td>-0.090892</td>
+      <td>1.130842</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[207]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#All three versions of Hours-per-week</span>
+<span class="n">norm</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">adult</span><span class="p">[[</span><span class="s2">&quot;hours-per-week&quot;</span><span class="p">]])</span>
+<span class="n">norm</span><span class="p">[</span><span class="s2">&quot;Min-Max&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">norm_hours</span>
+<span class="n">norm</span><span class="p">[</span><span class="s2">&quot;z-score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adult_std</span><span class="p">[[</span><span class="s2">&quot;hours-per-week&quot;</span><span class="p">]]</span>
+<span class="n">norm</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[207]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hours-per-week</th>
+      <th>Min-Max</th>
+      <th>z-score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>40</td>
+      <td>0.397959</td>
+      <td>-0.090892</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>13</td>
+      <td>0.122449</td>
+      <td>-2.362742</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>40</td>
+      <td>0.397959</td>
+      <td>-0.090892</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>40</td>
+      <td>0.397959</td>
+      <td>-0.090892</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>40</td>
+      <td>0.397959</td>
+      <td>-0.090892</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>40</td>
+      <td>0.397959</td>
+      <td>-0.090892</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>16</td>
+      <td>0.153061</td>
+      <td>-2.110314</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>45</td>
+      <td>0.44898</td>
+      <td>0.329821</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>50</td>
+      <td>0.5</td>
+      <td>0.750534</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>40</td>
+      <td>0.397959</td>
+      <td>-0.090892</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<h1>Question 10<a rel="noopener" class="anchor-link" href="#Question-10">&#182;</a></h1>
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<p>Now download a modified version of the data  (adult-modified-missing-vals.csv) that contains missing values. (a) Using Pandas determine all the attributes with missing values and the number of missing values for each such attribute. (b) Show all the instances in the data that contain a missing value. (c) Fill the missing values for all numeric attributes using the mean value for the attribute. (d) After filling in the missing numeric values, drop all rows where a categorical attribute contains a missing value. (e) Show that the final resulting table does not contain missing values.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[299]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult_missing</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/Users/vinodpatel/Desktop/DePaul/DSC 478 Programming machine learning/Week2/adult-modified-missing-vals.csv&quot;</span><span class="p">,</span> <span class="n">na_values</span> <span class="o">=</span><span class="p">[</span><span class="s2">&quot;?&quot;</span><span class="p">])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[300]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult_missing</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[300]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>education</th>
+      <th>marital-status</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>hours-per-week</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>39.0</td>
+      <td>Public</td>
+      <td>13</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>50.0</td>
+      <td>Self-emp</td>
+      <td>13</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>13</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>38.0</td>
+      <td>Private</td>
+      <td>9</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>53.0</td>
+      <td>Private</td>
+      <td>7</td>
+      <td>Married</td>
+      <td>Black</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>28.0</td>
+      <td>Private</td>
+      <td>13</td>
+      <td>Married</td>
+      <td>Black</td>
+      <td>Female</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[301]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#A</span>
+<span class="n">adult_missing</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 10000 entries, 0 to 9999
+Data columns (total 8 columns):
+ #   Column          Non-Null Count  Dtype  
+---  ------          --------------  -----  
+ 0   age             9802 non-null   float64
+ 1   workclass       9412 non-null   object 
+ 2   education       10000 non-null  int64  
+ 3   marital-status  10000 non-null  object 
+ 4   race            10000 non-null  object 
+ 5   sex             10000 non-null  object 
+ 6   hours-per-week  10000 non-null  int64  
+ 7   income          10000 non-null  object 
+dtypes: float64(1), int64(2), object(5)
+memory usage: 625.1+ KB
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<h1>Age and workclass has null values<a rel="noopener" class="anchor-link" href="#Age-and-workclass-has-null-values">&#182;</a></h1>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[302]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult_missing</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[302]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>education</th>
+      <th>marital-status</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>hours-per-week</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9995</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9996</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9997</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9998</th>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9999</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+<p>10000 rows &#215; 8 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[303]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#A-Shows the number of missing values all together</span>
+<span class="n">adult_missing</span><span class="p">[</span><span class="n">adult_missing</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[303]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>education</th>
+      <th>marital-status</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>hours-per-week</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19</th>
+      <td>NaN</td>
+      <td>Self-emp</td>
+      <td>14</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>45</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>Married</td>
+      <td>Asian</td>
+      <td>Male</td>
+      <td>60</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>NaN</td>
+      <td>Private</td>
+      <td>5</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>43</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>32.0</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>NaN</td>
+      <td>Private</td>
+      <td>9</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9965</th>
+      <td>NaN</td>
+      <td>Private</td>
+      <td>10</td>
+      <td>Married</td>
+      <td>Amer-Indian</td>
+      <td>Female</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>9966</th>
+      <td>NaN</td>
+      <td>Private</td>
+      <td>13</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>50</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>9987</th>
+      <td>67.0</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>9993</th>
+      <td>NaN</td>
+      <td>Private</td>
+      <td>9</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>15</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>9998</th>
+      <td>NaN</td>
+      <td>Private</td>
+      <td>2</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>53</td>
+      <td>&lt;=50K</td>
+    </tr>
+  </tbody>
+</table>
+<p>777 rows &#215; 8 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[304]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#B-Shows which rows have missing age </span>
+<span class="n">adult_missing</span><span class="p">[</span><span class="n">adult_missing</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[304]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>education</th>
+      <th>marital-status</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>hours-per-week</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19</th>
+      <td>NaN</td>
+      <td>Self-emp</td>
+      <td>14</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>45</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>Married</td>
+      <td>Asian</td>
+      <td>Male</td>
+      <td>60</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>NaN</td>
+      <td>Private</td>
+      <td>5</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>43</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>NaN</td>
+      <td>Private</td>
+      <td>9</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>NaN</td>
+      <td>Private</td>
+      <td>9</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>30</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9944</th>
+      <td>NaN</td>
+      <td>Private</td>
+      <td>12</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>45</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>9965</th>
+      <td>NaN</td>
+      <td>Private</td>
+      <td>10</td>
+      <td>Married</td>
+      <td>Amer-Indian</td>
+      <td>Female</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>9966</th>
+      <td>NaN</td>
+      <td>Private</td>
+      <td>13</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>50</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>9993</th>
+      <td>NaN</td>
+      <td>Private</td>
+      <td>9</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>15</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>9998</th>
+      <td>NaN</td>
+      <td>Private</td>
+      <td>2</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>53</td>
+      <td>&lt;=50K</td>
+    </tr>
+  </tbody>
+</table>
+<p>198 rows &#215; 8 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[305]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#B- Shows which row has the missing workclass</span>
+<span class="n">adult_missing</span><span class="p">[</span><span class="n">adult_missing</span><span class="o">.</span><span class="n">workclass</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[305]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>education</th>
+      <th>marital-status</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>hours-per-week</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>27</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>Married</td>
+      <td>Asian</td>
+      <td>Male</td>
+      <td>60</td>
+      <td>&gt;50K</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>32.0</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>25.0</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>67.0</td>
+      <td>NaN</td>
+      <td>6</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>2</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>17.0</td>
+      <td>NaN</td>
+      <td>6</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>32</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9907</th>
+      <td>68.0</td>
+      <td>NaN</td>
+      <td>9</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>15</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>9926</th>
+      <td>73.0</td>
+      <td>NaN</td>
+      <td>7</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>8</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>9927</th>
+      <td>18.0</td>
+      <td>NaN</td>
+      <td>7</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>20</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>9938</th>
+      <td>36.0</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>Single</td>
+      <td>White</td>
+      <td>Female</td>
+      <td>25</td>
+      <td>&lt;=50K</td>
+    </tr>
+    <tr>
+      <th>9987</th>
+      <td>67.0</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>Married</td>
+      <td>White</td>
+      <td>Male</td>
+      <td>40</td>
+      <td>&lt;=50K</td>
+    </tr>
+  </tbody>
+</table>
+<p>588 rows &#215; 8 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[306]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#C- replacing the Nan with the mean of the age variable</span>
+<span class="n">age_mean</span> <span class="o">=</span> <span class="n">adult_missing</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">adult_missing</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">age_mean</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">adult_missing</span><span class="p">[</span><span class="n">adult_missing</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[306]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>education</th>
+      <th>marital-status</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>hours-per-week</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[307]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#D - Dropping all rows that has missing workclass</span>
+<span class="n">adult_final</span> <span class="o">=</span> <span class="n">adult_missing</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">adult_missing</span><span class="p">[</span><span class="n">adult_missing</span><span class="o">.</span><span class="n">workclass</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[308]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">adult_final</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 9412 entries, 0 to 9999
+Data columns (total 8 columns):
+ #   Column          Non-Null Count  Dtype  
+---  ------          --------------  -----  
+ 0   age             9412 non-null   float64
+ 1   workclass       9412 non-null   object 
+ 2   education       9412 non-null   int64  
+ 3   marital-status  9412 non-null   object 
+ 4   race            9412 non-null   object 
+ 5   sex             9412 non-null   object 
+ 6   hours-per-week  9412 non-null   int64  
+ 7   income          9412 non-null   object 
+dtypes: float64(1), int64(2), object(5)
+memory usage: 661.8+ KB
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&#160;[309]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor">
+     <div class="CodeMirror cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># E</span>
+<span class="n">adult_final</span><span class="p">[</span><span class="n">adult_final</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>   
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[309]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>workclass</th>
+      <th>education</th>
+      <th>marital-status</th>
+      <th>race</th>
+      <th>sex</th>
+      <th>hours-per-week</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput">
+<p>There are 9412 non null values for all attributes, this shows that there are no missing values</p>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<script type="module" src="https://s.brightspace.com/lib/bsi/20.22.6-230/unbundled/mathjax.js"></script><script type="text/javascript">document.addEventListener('DOMContentLoaded', function() {
+					if (document.querySelector('math') || /\$\$|\\\(|\\\[|\\begin{|\\ref{|\\eqref{/.test(document.body.innerHTML)) {
+						document.querySelectorAll('mspace[linebreak="newline"]').forEach(elm => {
+							elm.setAttribute('style', 'display: block; height: 0.5rem;');
+						});
+
+						window.D2L.MathJax.loadMathJax({
+							'outputScale': 1.3,
+							'renderLatex': false
+						});
+					}
+				});</script></body></html>
